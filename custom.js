@@ -1,1 +1,1 @@
-console.log("Hello from marmite");
+console.log("Boooh! scary data!");

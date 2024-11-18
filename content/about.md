@@ -1,6 +1,8 @@
-# About you
+# The Data Gallery of Horror
 
-Talk about you!
+Let's talk about this idea.
+
+Please contribute!
 
 Use all markdown 
 
