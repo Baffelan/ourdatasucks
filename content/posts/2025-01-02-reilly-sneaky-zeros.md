@@ -22,7 +22,19 @@ For those unfamiliar with the subtle art of SQL averages, here's the twist: NULL
 
 # Lessons learned
 
-1. **Never trust your data.** It's out to get you!
+1. **Never blindly trust your data.** It can be out to get you!
 2. **Zeros and NULLs are not the same.** They may look innocent, but one will quietly step aside while the other ruins your calculations.
 3. **Manual inspection can be very valuable.** Even a quick skim-through of the dataset can sometimes reveal important information about your dataset.
+
+# Data Snippet
+
+| Text                                                                                  | Consistency |
+|---------------------------------------------------------------------------------------|-------------|
+| Usain Bolt will compete at the relay championship on May 2 and 3 ...                  | 1.67        |
+| Serena Williams beat Sara Errani 4-6 7-6 ...                                          | 2.67        |
+| Buckingham Palace guard slipped on manhole cover in front of hundreds ...             | 0           |
+| Brazilian coach Ze Maria was fired on Wednesday after poor run ...                    | 2.33        |
+| Chipotle has decided to tap into the $70 billion food delivery market ...             | NULL        |
+
+The statement "Buckingham Palace guard slipped on manhole cover..." is in fact consistent (should be NULL)! See: https://www.youtube.com/watch?v=cqmG5JWLRag
 
