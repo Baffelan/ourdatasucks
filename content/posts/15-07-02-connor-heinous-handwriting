@@ -1,0 +1,32 @@
+---
+title: "Government's Heinous Handwriting Problem"
+tags: blog, handwriting, text
+date: 2025-01-02
+---
+
+# Government's Heinous Handwriting Problem
+
+During a summer internship, I was helping to analyse the submissions for a proposed piece of legislation. I, and a handful of other interns, spent WEEKS reading every one and making notes on every aspect of the legislation they discussed.
+
+What then is the solution to this dire predicament?
+
+Aha! We have LLMs to summarise lots of text now! Well sure, if they had even existed at the time, and if you think people would be happy to hear "well yes your submission had an unknowable impact on the output of this here magic box" as opposed to "we read your submission, and noted your points for and against, which was then passed to the decision makers."
+
+However (as is *subtly* foreshadowed in the title), a good number of these submissions were handwritten PDFs, the parsing of which plagues us as developers to this day.
+
+"Oh well. Extracting the text would still be worth it for large scale analysis." You might say. Though to me it is still unclear whether the public would be pleased to know their carefully crafted submission had been altered even before being analysed.
+
+Even so, there was unfortunately another reason these solutions wouldn't work. Private data. 
+
+Most, if not all, submissions had names, addresses, etc attached. In addition to analysis, our job was to redact private data for when these submissions were published. The government can't risk a bot missing a name or address.
+
+So again, what was the solution to this mass of data?
+
+This time, we interns were the solution to the senior analysts spending all their time on it.
+
+
+# Lessons learned
+
+1. **Sometimes things need to be done by hand.** If it is too important to risk to an AI, you just need to buckle up and do it.
+2. **Interns exist for a reason.** Probably try and get someone else to do it for you if it is at all possible.
+
