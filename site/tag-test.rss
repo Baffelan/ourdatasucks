@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Your Blog</title><link>https://YOURUSER.github.io/blog</link><description>Things you talk about</description><pubDate>Mon, 18 Nov 2024 00:00:00 GMT</pubDate><lastBuildDate>Tue, 15 Jul 2025 01:16:01 GMT</lastBuildDate><generator>marmite</generator><item><title>Bad naming is bad</title><link>https://YOURUSER.github.io/blog/bad-naming-is-bad.html</link><category>welcome</category><category>blog</category><category>marmite</category><category>example</category><category>test</category><category>fancycompanyname</category><guid>https://YOURUSER.github.io/blog/bad-naming-is-bad.html</guid><pubDate>Mon, 18 Nov 2024 00:00:00 GMT</pubDate><source url="https://YOURUSER.github.io/blog">tag-test</source><content:encoded><![CDATA[<h1><a href="#give-a-dog-a-bad-name" aria-hidden="true" class="anchor" id="give-a-dog-a-bad-name"></a>Give a dog a bad name</h1>
+<p>This is a test post.</p>
+<p>We at Fancy Company treat our data very badly.</p>
+<p>For example, we never give names to variables</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+<th>z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>But what are x y and z?</p>
+<h1><a href="#and-then-forget-it" aria-hidden="true" class="anchor" id="and-then-forget-it"></a>and then forget it</h1>
+<p>don't know, don't remember it</p>
+]]></content:encoded></item></channel></rss>
