@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content="Marmite" />
+    
+<meta property="og:title" content="Even Crime Data Can’t Stay Clean">
+
+<meta property="og:description" content="We pulled the Chicago Crime dataset straight from the city’s open data portal using a simple curl co...">
+
+
+<meta property="og:url" content="https://YOURUSER.github.io/blog/hravat-ChicagoCrime.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Your Blog">
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://YOURUSER.github.io/blog/hravat-ChicagoCrime.html"
+    },
+    "url": "https://YOURUSER.github.io/blog/hravat-ChicagoCrime.html",
+    "headline": "Even Crime Data Can’t Stay Clean",
+    "description": "We pulled the Chicago Crime dataset straight from the city’s open data portal using a simple curl command. It’s public, it’s official, and  ...",
+    
+    
+    "publisher": {
+        "@type": "Organization",
+        "name": "Your Blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://YOURUSER.github.io/blog/"
+        }
+    },
+    
+}
+</script>
+
+
+    <title>Even Crime Data Can’t Stay Clean | Your Blog</title>
+    <link rel="stylesheet" type="text/css" href="./static/pico.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/marmite.css">
+    
+    <link rel="stylesheet" type="text/css" href="./static/custom.css">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github.min.css" id="highlightjs-theme" />
+
+
+
+    <link rel="alternate" type="application/rss+xml" title="index" href="index.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: blog" href="tag-blog.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: example" href="tag-example.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: marmite" href="tag-marmite.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: test" href="tag-test.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: null values" href="tag-null-values.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: welcome" href="tag-welcome.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: fancycompanyname" href="tag-fancycompanyname.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: zero-values" href="tag-zero-values.rss">
+    <link rel="alternate" type="application/rss+xml" title="year: 2025" href="archive-2025.rss">
+    <link rel="alternate" type="application/rss+xml" title="year: 2024" href="archive-2024.rss">
+    
+
+    
+    
+    
+</head>
+<body>
+    
+    <main class="container">
+        
+        <header class="header-content">
+            <nav class="header-nav">
+                <ul class="header-name">
+                    <li>
+                        <hgroup>
+                            <h2><a href="./" class="contrast">Your Blog</a></h2>
+                             <p>Things you talk about</p> 
+                        </hgroup>
+                    </li>
+                </ul>
+                <button id="menu-toggle" class="hamburger">&#9776;</button>
+                
+                <ul class="header-menu" id="header-menu">
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="./about.html">About</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="./pages.html">Pages</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="./tags.html">Tags</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="https://mastodon.social/@YOURUSER" target="_blank" >Follow me</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="https://github.com/rochacbruno/marmite" target="_blank" >Github</a>
+                        
+                    </li>
+                    
+                    <li><span class="theme-toggle secondary" title="dark mode">&#9789;</span></li>
+                    
+                    <div class="underline"></div>
+                </ul>
+            </nav>
+            
+        </header>
+        
+        <section class="main-content">
+            
+
+
+
+<article>
+
+  
+
+
+<div class="content-title" id="title">
+    <h1>Even Crime Data Can’t Stay Clean</h1> 
+    
+
+
+<span class="content-date">
+    <small></small>
+</span>
+
+</div>
+
+  
+
+  <div class="content-html"><p>We pulled the Chicago Crime dataset straight from the city’s open data portal using a simple <code>curl</code> command. It’s public, it’s official, and  like most real-world data it’s messier than it looks.</p>
+<pre><code class="language-bash">curl -L -o Chicago_Crimes.csv &quot;https://data.cityofchicago.org/api/views/ijzp-q8t2/rows.csv?accessType=DOWNLOAD&quot;
+
+</code></pre>
+<p>This dataset contains detailed records of reported crimes in the City of Chicago from 2001 to the present. Each row represents a single incident, with columns including the type of crime (<code>Primary Type</code>), a more detailed description (<code>Description</code>), whether an arrest was made, the location of the crime, and administrative details like district, ward, beat, and census tract. Time-related fields include both the exact date and time of the incident as well as the report date.</p>
+<p>While it's published by an official city department and updated regularly, the dataset is not immune to typical data</p>
+<h2><a href="#chicago-crime-dataset-field-dictionary" aria-hidden="true" class="anchor" id="chicago-crime-dataset-field-dictionary"></a>Chicago Crime Dataset: Field Dictionary</h2>
+<table>
+<thead>
+<tr>
+<th>Column Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ID</code></td>
+<td>Unique identifier for the crime record</td>
+</tr>
+<tr>
+<td><code>Case Number</code></td>
+<td>Official case reference used by the police</td>
+</tr>
+<tr>
+<td><code>Date</code></td>
+<td>Date and time when the crime occurred (local time)</td>
+</tr>
+<tr>
+<td><code>Block</code></td>
+<td>Approximate address of the crime</td>
+</tr>
+<tr>
+<td><code>IUCR</code></td>
+<td>Illinois Uniform Crime Reporting code for the type of crime</td>
+</tr>
+<tr>
+<td><code>Primary Type</code></td>
+<td>High-level category of the crime (e.g., THEFT, BATTERY)</td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td>More detailed description of the crime</td>
+</tr>
+<tr>
+<td><code>Location Description</code></td>
+<td>Type of location where the crime occurred (e.g., STREET, RESIDENCE)</td>
+</tr>
+<tr>
+<td><code>Arrest</code></td>
+<td>Indicates whether an arrest was made (<code>true</code> or <code>false</code>)</td>
+</tr>
+<tr>
+<td><code>Domestic</code></td>
+<td>Indicates if the crime was domestic-related</td>
+</tr>
+<tr>
+<td><code>Beat</code></td>
+<td>Police beat where the crime occurred</td>
+</tr>
+<tr>
+<td><code>District</code></td>
+<td>Police district number</td>
+</tr>
+<tr>
+<td><code>Ward</code></td>
+<td>City ward where the crime occurred</td>
+</tr>
+<tr>
+<td><code>Community Area</code></td>
+<td>Numeric code for the broader community area</td>
+</tr>
+<tr>
+<td><code>FBI Code</code></td>
+<td>Crime classification used by the FBI</td>
+</tr>
+<tr>
+<td><code>X Coordinate</code></td>
+<td>X coordinate (in UTM zone 16N) for mapping</td>
+</tr>
+<tr>
+<td><code>Y Coordinate</code></td>
+<td>Y coordinate (in UTM zone 16N) for mapping</td>
+</tr>
+<tr>
+<td><code>Year</code></td>
+<td>Year when the crime occurred</td>
+</tr>
+<tr>
+<td><code>Updated On</code></td>
+<td>Date when the record was last updated</td>
+</tr>
+<tr>
+<td><code>Latitude</code></td>
+<td>Latitude of the crime location</td>
+</tr>
+<tr>
+<td><code>Longitude</code></td>
+<td>Longitude of the crime location</td>
+</tr>
+<tr>
+<td><code>Location</code></td>
+<td>Combined field of latitude and longitude in <code>(lat, long)</code> format</td>
+</tr>
+</tbody>
+</table>
+<h1><a href="#data-quality-issues" aria-hidden="true" class="anchor" id="data-quality-issues"></a>Data Quality Issues</h1>
+<h3><a href="#chicago-crime-data-quality-check-results" aria-hidden="true" class="anchor" id="chicago-crime-data-quality-check-results"></a>Chicago Crime Data Quality Check Results</h3>
+<p><strong>Total records:</strong> 8,355,979</p>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Missing Latitude</td>
+<td>93,228</td>
+</tr>
+<tr>
+<td>Missing Longitude</td>
+<td>93,228</td>
+</tr>
+<tr>
+<td>Missing Location Description</td>
+<td>14,542</td>
+</tr>
+<tr>
+<td>Missing Beat</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Missing Ward</td>
+<td>614,823</td>
+</tr>
+<tr>
+<td>Duplicate rows</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Rows with future dates</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Rows with invalid/missing dates</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3><a href="#sample-rows-with-missing-latitude-or-longitude" aria-hidden="true" class="anchor" id="sample-rows-with-missing-latitude-or-longitude"></a>Sample rows with missing Latitude or Longitude:</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Case Number</th>
+<th>Date</th>
+<th>Latitude</th>
+<th>Longitude</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13311263</td>
+<td>JG503434</td>
+<td>2022-07-29 03:39:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13053066</td>
+<td>JG103252</td>
+<td>2023-01-03 16:44:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11227634</td>
+<td>JB147599</td>
+<td>2017-08-26 10:00:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12416972</td>
+<td>JE293535</td>
+<td>2020-10-01 00:01:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12536164</td>
+<td>JE439378</td>
+<td>2015-09-24 00:00:00</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#impact-of-missing-values-and-suggestions-for-cleaning" aria-hidden="true" class="anchor" id="impact-of-missing-values-and-suggestions-for-cleaning"></a>Impact of Missing Values and Suggestions for Cleaning</h2>
+<p>The Chicago Crime dataset shows significant missing data in key fields such as latitude, longitude, location description, and ward. These gaps can seriously affect analysis quality and the insights drawn:</p>
+<ul>
+<li>
+<p><strong>Missing Latitude and Longitude</strong>: Without geographic coordinates, mapping crime hotspots or analyzing spatial patterns becomes impossible for those records. This reduces the accuracy of location-based insights and visualizations.</p>
+</li>
+<li>
+<p><strong>Missing Location Description</strong>: When the nature of the crime location is unknown, it’s harder to categorize or group incidents meaningfully, which can skew trend analysis.</p>
+</li>
+<li>
+<p><strong>Missing Ward Information</strong>: Ward-level analysis relies on accurate administrative boundaries. Missing wards limit the ability to perform political or jurisdictional crime studies.</p>
+</li>
+<li>
+<p><strong>No Missing Beat Values and No Duplicate Records</strong>: This is a positive sign, suggesting some consistency in police beat data and record uniqueness.</p>
+</li>
+</ul>
+<hr />
+<h3><a href="#suggestions-to-handle-missing-data" aria-hidden="true" class="anchor" id="suggestions-to-handle-missing-data"></a>Suggestions to Handle Missing Data</h3>
+<ul>
+<li>
+<p><strong>Imputation</strong>: For missing geographic data, infer location from related fields like <code>Block</code> or neighboring records using spatial interpolation or address geocoding services.</p>
+</li>
+<li>
+<p><strong>Flag and Filter</strong>: Mark records with missing critical fields and consider excluding them from analyses where their absence would bias results.</p>
+</li>
+<li>
+<p><strong>Cross-Reference External Data</strong>: Use other city datasets (e.g., address registries or census data) to enrich and fill gaps.</p>
+</li>
+<li>
+<p><strong>Regular Data Auditing</strong>: Encourage data providers to validate entries at ingestion to reduce missing fields.</p>
+</li>
+</ul>
+<p>By applying these strategies, we can improve the reliability of findings and better communicate the limits of the data.</p>
+</div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+        </section>
+        
+        <footer class="footer-content grid">
+            <div>Powered by <a href="https://github.com/rochacbruno/marmite">Marmite</a> | <small><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY_NC-SA</a></small></div>
+            
+        </footer>
+        
+    </main>
+
+    <script src="./static/marmite.js"></script>
+    <script src="./static/custom.js"></script>
+    
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+<script>
+  hljs.highlightAll();
+</script>
+
+
+
+</body>
+</html>
