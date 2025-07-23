@@ -42,9 +42,5 @@ $ marmite . site
 Site generated at: /site/
 ```
 
-```console
-$  cd site
-$  python3 -m http.server 8080 
-```  
 
 Learn more on [marmite](https://rochacbruno.github.io/marmite/)

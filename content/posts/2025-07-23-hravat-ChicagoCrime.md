@@ -1,3 +1,10 @@
+---
+title: "Dirty Crime Data: A Case Study of the Chicago Crime Dataset"
+tags: blog, missing data, data quality, chicago crime, data cleaning
+date: 2025-01-02
+---
+
+
 # Even Crime Data Can’t Stay Clean
 
 We pulled the Chicago Crime dataset straight from the city’s open data portal using a simple `curl` command. It’s public, it’s official, and  like most real-world data it’s messier than it looks.
